@@ -15,9 +15,8 @@ jobs:
         run: echo "Repo checked out!"
 
       - name: Build image
-      - run: |
-        cd example-project
-        docker build . -t my-nginx:latest
+        run: |
+          docker build ./example-project -t my-nginx:latest
 
   run:
     needs: build
@@ -25,4 +24,4 @@ jobs:
     steps:
       - name: Run Docker container
         run: |
-          docker run --name nginx-service -p 80:80 -d my-nginx:latest
+          docker run --name nginx-service -d -p 80:80 my-nginx:latest
