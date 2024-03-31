@@ -22,14 +22,13 @@ jobs:
           push: false
           load: true
           tags: my-nginx:latest
-    
   run:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Run Docker container
       - uses: addnab/docker-run-action@v3
-      with:
-        image: my-nginx:latest
-        options: -p 80:80
-        run: echo "Running NGINX serivce"
+        with:
+          image: my-nginx:latest
+          options: -p 80:80
+          run: echo "Running NGINX serivce"
