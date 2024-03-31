@@ -31,4 +31,4 @@ jobs:
         with:
           image: my-nginx:latest
           options: -p 80:80
-          run: echo "Running NGINX serivce"
+        run: echo "Running NGINX serivce"
