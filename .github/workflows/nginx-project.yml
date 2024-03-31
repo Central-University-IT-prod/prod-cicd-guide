@@ -26,4 +26,4 @@ jobs:
         run: docker kill $(docker ps -q)
       - name: Run Docker container
         run: |
-          docker run --name nginx-service -d -p 80:80 my-nginx:latest
+          docker run -d -p 80:80 my-nginx:latest
