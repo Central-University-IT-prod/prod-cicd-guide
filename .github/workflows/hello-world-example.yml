@@ -1,0 +1,21 @@
+name: hello-world
+run-name: ${{ github.actor }} is here!
+on:
+   # События, которые запускают джобу
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+
+# jobs запускаются параллельно, если не указана последовательность
+jobs:
+  hello-world:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
