@@ -23,7 +23,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Kill all (hard policy)
-        run: docker kill $(docker ps -q)
+        run: docker ps -q | grep -q . && docker kill $(docker ps -q) || echo "Nothing to kill"
       - name: Run Docker container
         run: |
           docker run -d -p 80:80 my-nginx:latest
