@@ -27,8 +27,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Run Docker container
-      - uses: addnab/docker-run-action@v3
+        uses: addnab/docker-run-action@v3
         with:
           image: my-nginx:latest
           options: -p 80:80
-        run: echo "Running NGINX serivce"
+          run: echo "Running NGINX serivce"
