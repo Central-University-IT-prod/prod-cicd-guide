@@ -11,7 +11,6 @@ on:
 jobs:
     # Название job вы можете назвать как угодно
     my_build_job:
-      # В каком пространстве будет запускаться Pipeline
       runs-on: self-hosted
         # Шаги
         steps:
