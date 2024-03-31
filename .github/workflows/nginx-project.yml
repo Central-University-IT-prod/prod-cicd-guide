@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check and fetch repo
+        run: echo Ok!
 
       - uses: docker/build-push-action@v2
       - name: Build image
