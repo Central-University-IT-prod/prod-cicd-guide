@@ -15,23 +15,14 @@ jobs:
         run: echo "Repo checked out!"
 
       - name: Build image
-        uses: docker/build-push-action@v2
-        with: 
-          context: ./example-project
-          file: ./example-project/Dockerfile
-          push: false
-          load: true
-          tags: my-nginx:latest
+      - run: |
+        cd example-project
+        docker build . -t my-nginx:latest
 
   run:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Run Docker container
-        uses: addnab/docker-run-action@v3
-        with:
-          image: my-nginx:latest
-          options: -p 80:80
-
-      - name: Check NGINX Service
-        run: echo "NGINX service should be running now"
+        run: |
+          docker run --name nginx-service -p 80:80 -d my-nginx:latest

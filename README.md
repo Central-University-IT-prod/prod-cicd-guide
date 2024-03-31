@@ -55,4 +55,5 @@ sudo ./svc.sh status
 - Сборка образа в Docker под названием `my-nginx` // `docker build . -t my-nginx`;
 - Запуск проекта с учетом проброса 80 порта // `docker run -p 80:80 -d my-nginx`;
 
-Напишем простой Workflow:
+Для начала установим Docker на виртуальной машине (можно по [этой](https://timeweb.cloud/tutorials/docker/kak-ustanovit-docker-na-ubuntu-22-04) инструкции).
+
