@@ -9,20 +9,13 @@ on:
 
 # jobs запускаются параллельно, если не указана последовательность
 jobs:
-    # Название job вы можете назвать как угодно
-    my_build_job:
-      runs-on: self-hosted
-        # Шаги
-        steps:
-          # Actions от Github: проверяет репозиторий, гит и т.д.
-          - uses: actions/checkout@v3
-          
-          # Пример однолинейного простого скрипта shell
-          - name: Run a one-line script
-            run: echo Hello, world!
-
-          # Пример многолинейного скрипта shell
-          - name: Run a multi-line script
-            run: |
-                echo Add other actions to build,
-                echo test, and deploy your project.
+  stop-and-remove-containers:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
