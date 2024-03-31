@@ -9,7 +9,7 @@ on:
 
 # jobs запускаются параллельно, если не указана последовательность
 jobs:
-  stop-and-remove-containers:
+  hello-world:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
