@@ -1,0 +1,30 @@
+name: nginx-sample
+run-name: Nginx building and running
+on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check and fetch repo
+
+      - uses: docker/build-push-action@v2
+      - name: Build image
+        with: 
+          context: ./example-project
+          file: ./example-project/Dockerfile
+          push: false
+          load: true
+          tags: my-nginx:latest
+    
+  run:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Run Docker container
+        run: docker run --name nginx-service -d -p 80:80 my-nginx:latest

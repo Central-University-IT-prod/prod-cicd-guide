@@ -1,0 +1,5 @@
+User-agent: ExampleRobot
+Allow: /
+Disallow: /admin
+
+Clean-param: &id
